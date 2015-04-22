@@ -1,0 +1,343 @@
+actions.py
+sign
+   sign is left a function; it does not access object attributes, and it has 
+   general functionality (returns certain values if the argument is 
+   positive, negative, or 0)
+create_blob, create_ore, create_quake, create_vein
+   These are left as functions; they depend on aspects of the program 
+   outside classes (such as i_store) that might reduce the generality/easy
+   use of a class.
+
+builder.py
+create_default_background
+   The function does not call object attributes.  It simply creates an 
+   instance of a class.
+main
+   main deals with pygame setup, but not object attributes
+
+builder_controller.py
+Functions in builder_controller.py concern files and pygame setup;
+   they handle the world, but they do not directly involve the behavior 
+   of the classes.
+
+controller.py
+Again, functions in controller.py are used in controls and in the setup 
+   of pygame; they do not directly involve any classes.
+
+entities.py
+# includes some methods that were attempted but not entirely implemented
+  for the sake of functionality
+# (find_nearest/find_nearest_entity, blob_next_y/blob_next_position_y,
+  blob_next_x/blob_next_position_x)
+class: Background
+   __init__
+   get_name
+   get_images
+   get_image
+   next_image
+   find_nearest_entity
+   blob_next_position_y
+   blob_next_position_x
+class: MinerNotFull
+   __init__
+   get_name
+   get_resource_limit
+   set_resource_count
+   get_resource_count
+   set_position
+   get_position
+   get_rate
+   get_images
+   get_image
+   next_image
+   get_animation_rate
+   remove_pending_action
+   add_pending_action
+   get_pending_actions
+   clear_pending_actions
+   schedule_entity
+   schedule_action
+   schedule_miner
+   schedule_animation
+   create_animation_action
+   next_position
+   create_miner_action
+   create_miner_not_full_action
+   miner_to_ore
+   try_transform_miner_not_full
+   try_transform_miner
+   remove_entity
+   create_entity_death_action
+   find_nearest_entity
+   blob_next_position_y
+   blob_next_position_x
+class: MinerFull
+   __init__
+   get_name
+   get_resource_limit
+   set_resource_count
+   get_resource_count
+   set_position
+   get_position
+   get_rate
+   get_images
+   get_image
+   next_image
+   get_animation_rate
+   remove_pending_action
+   add_pending_action
+   get_pending_actions
+   clear_pending_actions
+   schedule_entity
+   schedule_action
+   schedule_miner
+   schedule_animation
+   create_animation_action
+   next_position
+   create_miner_action
+   create_miner_full_action
+   miner_to_smith
+   try_transform_miner_full
+   try_transform_miner
+   remove_entity
+   create_entity_death_action
+   find_nearest_entity
+   blob_next_position_y
+   blob_next_position_x
+class: Vein
+   __init__
+   get_name
+   set_position
+   get_position
+   get_rate
+   get_images
+   get_image
+   next_image
+   get_resource_distance
+   remove_pending_action
+   add_pending_action
+   get_pending_actions
+   clear_pending_actions
+   schedule_entity
+   schedule_action
+   schedule_vein
+   schedule_animation  
+   create_animation_action
+   next_position 
+   create_vein_action
+   find_open_around
+   remove_entity
+   create_entity_death_action
+   find_nearest_entity
+   blob_next_position_y
+   blob_next_position_x
+class: Ore
+   __init__
+   get_name
+   set_position
+   get_position
+   get_rate
+   get_images
+   get_image
+   next_image
+   remove_pending_action
+   add_pending_action
+   get_pending_actions
+   clear_pending_actions
+   schedule_entity
+   schedule_action
+   schedule_ore
+   schedule_animation  
+   create_animation_action
+   next_position 
+   create_ore_transform_action
+   remove_entity
+   create_entity_death_action
+   find_nearest_entity
+   blob_next_position_y
+   blob_next_position_x
+class: Blacksmith
+   __init__
+   get_name
+   set_position
+   get_position
+   get_rate
+   get_images
+   get_image
+   next_image
+   get_resource_limit
+   set_resource_count
+   get_resource_count
+   get_resource_distance
+   remove_pending_action
+   add_pending_action
+   get_pending_actions
+   clear_pending_actions
+   schedule_entity
+   schedule_action
+   schedule_animation  
+   create_animation_action
+   next_position 
+   remove_entity
+   create_entity_death_action
+   find_nearest_entity
+   blob_next_position_y
+   blob_next_position_x
+class: Obstacle
+  __init__
+   get_name
+   set_position
+   get_position
+   get_images
+   get_image
+   next_image
+   schedule_entity
+   next_position 
+   find_nearest_entity
+   blob_next_position_y
+   blob_next_position_x
+class: OreBlob
+  __init__
+   get_name
+   set_position
+   get_position
+   get_rate
+   get_images
+   get_image
+   next_image
+   get_animation_rate
+   remove_pending_action
+   add_pending_action
+   get_pending_actions
+   clear_pending_actions
+   schedule_action
+   schedule_blob
+   schedule_animation  
+   create_animation_action
+   next_position
+   blob_next_position 
+   create_ore_blob_action
+   blob_to_vein
+   remove_entity
+   create_entity_death_action
+   find_nearest_entity
+   blob_next_position_y
+   blob_next_position_x
+class: Quake
+  __init__
+   get_name
+   set_position
+   get_position
+   get_images
+   get_image
+   next_image
+   get_animation_rate
+   remove_pending_action
+   add_pending_action
+   get_pending_actions
+   clear_pending_actions
+   schedule_action
+   schedule_quake
+   schedule_animation  
+   create_animation_action
+   next_position 
+   remove_entity
+   create_entity_death_action
+   find_nearest_entity
+   blob_next_position_y
+   blob_next_position_x
+
+image_store.py
+Contains functions that deal with general image setup and therefore
+would not fit in a class.
+
+keys.py
+Contains pygame keys
+
+main.py
+create_default_background
+   This function creates an Background object but does not use class 
+   attributes.
+load_world
+   Loads a world from a file; involves outside info and is not specific 
+   to a class
+main
+   Creates entire world according to pygame; again, involves outside
+   info and is not specific to a class
+
+mouse_buttons.py
+List of mouse buttons
+
+occ_grid.py
+class: Grid
+   __init__
+   set_cell
+   get_cell
+   No methods were altered in occ_grid.py; the class contains all the 
+   information it needs 
+
+ordered_list.py
+class: OrderedList
+   __init__
+   insert
+   remove
+   head
+   pop
+   All functionality provided; class is accessed little in other files,
+   and it is only in use to give functionality to other class methods.
+class: ListItem
+   __init__
+   __eq__
+   All functionality provided; class attributes are not often accessed
+
+point.py
+class: Point
+   __init__
+   distance_sq
+   adjacent
+
+save_load.py
+   All functions in save_load.py are left as functions; they depend on 
+   outside aspects of the program (such as properties and i_store)
+
+worldmodel.py
+class: WorldModel
+   __init__
+   get_background_image
+   get_background
+   set_background
+   is_occupied
+   get_tile_occupant
+   within_bounds
+   get_entities
+   add_entity
+   move_entity
+   remove_entity
+   remove_entity_at
+   find_nearest
+   schedule_action
+   unscheduled_action
+   update_on_time
+   clear_pending_actions
+nearest_entity
+   Left as a function because it has general functionality; it does not
+   access object attributes
+
+worldview.py
+class: WorldView
+   __init__
+   draw_background
+   draw_entities
+   draw_viewport
+   viewport_to_world
+   create_shifted_viewport
+   update_view
+   update_view_tiles
+   update_tile
+   get_tile_image
+   create_mouse_surface
+   update_mouse_cursor
+   mouse_move
+clamp
+   The function clamp is left as a function because it is not specific
+   to any class (very general function)
