@@ -6,7 +6,7 @@ BLOB_RATE_SCALE = 4
 QUAKE_STEPS = 10
 QUAKE_DURATION = 1100
 
-
+ 
 class WorldObject(object):
 #Contains all objects; Background and Obstacle exclusively in this class
    def __init__(self, name, imgs):
